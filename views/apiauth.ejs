@@ -1,0 +1,6 @@
+<form action = "/apiauth" method="POST"> 
+    <button name="Submit" > Generate API Authentication </button>
+    <%if(typeof token !== 'undefined' && token){%>
+    <p><%= token %></p>
+    <% } %>
+    </form>

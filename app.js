@@ -41,7 +41,7 @@ app.all('/'), function(req,res,next){
 app.use('/products',authenticateToken, productsRoute) /// Api key based authentication 
 app.use('/user',authenticateapi, require('./routes/user')) // Login based authentication
 app.use('/views',express.static(path.join(__dirname,"public")))
-app.listen(process.env.PORT || 3333 );
+app.listen(process.env.PORT || 8888 );
 //----------------------------------------------------------------------------------------------//
 
 // // Tutorial on microservices 

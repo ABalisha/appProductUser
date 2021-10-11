@@ -18,6 +18,7 @@ const logoutController = require('./controller/helpers/logout')
 const {authenticateapi} = require('./controller/helpers/apiauthenticate')
 const { send, nextTick } = require('process');
 const {tokenauthenticate} = require('./controller/helpers/tokenauthenticate');
+const dotenv = require("dotenv");
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.post('/loginregister',loginController.LoginSearch)

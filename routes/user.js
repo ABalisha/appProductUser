@@ -4,7 +4,7 @@ const path = require('path')
 const product = require('../models/user')
 const userController = require('../controller/user')
 const {allUsers, allUsersPost,allUsersDelete,allUsersUpdate} = require('../controller/allusersjson')
-const {authenticateapi} = require('./controller/helpers/apiauthenticate')
+const {authenticateapi} = require('../controller/helpers/apiauthenticate')
 const headeroptions = (req,res,next)=>{
     res.header('Access-Control-Allow-Origin', '*');
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

@@ -1,5 +1,4 @@
 const express = require('express')
-require('dotenv').config()
 const user = require('./models/user')
 app = express();
 const productHelper = require('./controller/helpers/index')

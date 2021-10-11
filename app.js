@@ -1,4 +1,5 @@
 const express = require('express')
+const dotenv = require("dotenv");
 const user = require('./models/user')
 app = express();
 const productHelper = require('./controller/helpers/index')
@@ -18,7 +19,7 @@ const logoutController = require('./controller/helpers/logout')
 const {authenticateapi} = require('./controller/helpers/apiauthenticate')
 const { send, nextTick } = require('process');
 const {tokenauthenticate} = require('./controller/helpers/tokenauthenticate');
-const dotenv = require("dotenv");
+
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.post('/loginregister',loginController.LoginSearch)

@@ -39,7 +39,7 @@ app.all('/'), function(req,res,next){
     next();
 }
 app.use('/products',authenticateToken, productsRoute) /// Api key based authentication 
-app.use('/user',authenticateapi, require('./routes/user')) // Login based authentication
+app.use('/user',require('./routes/user')) // Login based authentication
 app.use('/views',express.static(path.join(__dirname,"public")))
 app.listen(process.env.PORT || 8888 );
 //----------------------------------------------------------------------------------------------//

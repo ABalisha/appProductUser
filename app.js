@@ -9,7 +9,6 @@ const product = require('./models/product')
 const loginController = require('./controller/login')
 const cookieParser = require('cookie-parser')
 const productsRoute = require('./routes/product')
-const cors = require('cors')
 const {authenticateToken} = require('./controller/helpers/tokenauthenticate')
 const database = require('./db')
 const apiRoute = require('./routes/apiauth')
@@ -18,8 +17,10 @@ const logoutController = require('./controller/helpers/logout')
 const {authenticateapi} = require('./controller/helpers/apiauthenticate')
 const { send, nextTick } = require('process');
 const {tokenauthenticate} = require('./controller/helpers/tokenauthenticate');
-
-app.use(express.urlencoded({extended:true}))
+const {info,warn,error} = require('./logger')
+const {ipLog} = require('./models/iplogging')
+const {deviceLogging} = require("./controller/helpers/deviceLogging")
+app.use(express.urlencoded({extended:true})) 
 app.use(express.json())
 app.post('/loginregister',loginController.LoginSearch)
 app.get('/logout',logoutController.logout)
@@ -27,17 +28,11 @@ app.set('view engine', 'ejs')
 // Routes Post Middleware
 app.use(cookieParser())
 app.use('/', mainRoute)
-
 app.use('/apiauth', apiRoute)
 app.use('/register',(req,res)=>{
     res.render('register')
 })
-// app.all('/'), function(req,res,next){
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// }
+app.use(deviceLogging)
 app.use('/products', productsRoute) /// Api key based authentication 
 app.use('/user', require('./routes/user')) // Login based authentication
 app.use('/views',express.static(path.join(__dirname,"public")))

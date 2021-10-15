@@ -32,12 +32,12 @@ app.use('/apiauth', apiRoute)
 app.use('/register',(req,res)=>{
     res.render('register')
 })
-// app.all('/'), function(req,res,next){
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// }
+app.all('/'), function(req,res,next){
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
 app.use('/products', productsRoute) /// Api key based authentication 
 app.use('/user', require('./routes/user')) // Login based authentication
 app.use('/views',express.static(path.join(__dirname,"public")))

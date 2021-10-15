@@ -2,6 +2,8 @@ const express = require("express");
 const router = express();
 const userController = require("../controller/user");
 const {headeroptions}  = require ('../headerO')
+const logger = require('../logger')
+
 const {
   allUsers,
   allUsersPost,
@@ -37,6 +39,8 @@ router
 // router.get("/testlogin", loginverify, (req, res) => {
 //   console.log("Logged in Succesfully");
 // });
+
+
 module.exports = router;
 
 // const object = {

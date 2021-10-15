@@ -20,12 +20,13 @@ router.get("/", authenticateapi, userController.userspage);
 router.post("/", userController.adduser);
 router.post("/search", userController.SearchRes);
 router.get("/del/:DeleteParam", userController.Delete);
+router.use(headeroptions)
 router
   .route("/json")
-  .get(headeroptions,allUsers)
-  .post(headeroptions, allUsersPost)
-  .delete(headeroptions, allUsersDelete)
-  .put(headeroptions, allUsersUpdate);
+  .get(allUsers)
+  .post(allUsersPost)
+  .delete(allUsersDelete)
+  .put(allUsersUpdate);
 
   // Param Routes / Search based on ID parameter
   router.get("/json/:id",headeroptions,getSingleUser)

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express();
 const path = require("path");
-const {headerO} = require("../headerO/")
+const {headeroptions} = require("../headerO")
 const { allproducts1 } = require("../controller/helpers/index");
 const {
   mainroute,
@@ -22,7 +22,9 @@ const {
 require("dotenv/config");
 const {deviceLogging} = require('../controller/helpers/deviceLogging')
 // ------------------------------------------------------------------------------------//
-//ROUTES add product get
+//ROUTES add product get 
+
+router.use(headeroptions)
 router.get("/", mainroute);
 router.get("/all-products", deviceLogging,allproducts);
 

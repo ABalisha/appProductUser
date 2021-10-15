@@ -12,11 +12,7 @@ const iplogging = mongoose.Schema({
   },
   Namespace:{
       type:String
-  },
-  Time:{
-      type:String,
-      default:Date.now()
   }
-});
+},timestamps:true);
 
 exports.ipLog  = mongoose.model("ipLog",iplogging)

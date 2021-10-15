@@ -19,9 +19,12 @@ const {
   getproductbyid
 } = require("../controller/allproductsjson");
 require("dotenv/config");
+const {deviceLogging} = require('../controller/helpers/deviceLogging')
+// ------------------------------------------------------------------------------------//
 //ROUTES add product get
 router.get("/", mainroute);
-router.get("/all-products", allproducts);
+router.get("/all-products", deviceLogging,allproducts);
+
 
 // API PRODUCTS -------------
 router

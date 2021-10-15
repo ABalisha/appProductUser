@@ -39,7 +39,7 @@ role:{
 type:String,
 required:true
 }
-})
+},{ timestamps: true })
     const user = mongoose.model('user',modeli);
 
 module.exports = user;

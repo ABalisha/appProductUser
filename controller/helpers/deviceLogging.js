@@ -1,6 +1,6 @@
 const {ipLog} = require('../../models/iplogging')
 const os = require('os');
-const ip = require('ipaddressapi')
+const ip = require('../../node_modules/ipaddressapi')
 exports.deviceLogging = async (req,res,next)=>
 {
     const urlR = req.baseUrl + req.path

@@ -32,13 +32,20 @@ app.use('/apiauth', apiRoute)
 app.use('/register',(req,res)=>{
     res.render('register')
 })
+// Device Logging Module
 app.use(deviceLogging)
+// Settings routes, Route information moved to routes folder 
 app.use('/products', productsRoute) /// Api key based authentication 
 app.use('/user', require('./routes/user')) // Login based authentication
+// Setting a view folder . View Engine / EJS installed from NPM template
 app.use('/views',express.static(path.join(__dirname,"public")))
+
+// Setting a reply for non existent paths
 app.get('*',(req,res)=>{
     res.send('Wrong page fella')
 })
+
+// Setting the app to listen to PORT
 app.listen(process.env.PORT || 8888 );
 //----------------------------------------------------------------------------------------------//
 

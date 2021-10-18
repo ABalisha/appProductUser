@@ -36,6 +36,9 @@ app.use(deviceLogging)
 app.use('/products', productsRoute) /// Api key based authentication 
 app.use('/user', require('./routes/user')) // Login based authentication
 app.use('/views',express.static(path.join(__dirname,"public")))
+app.get('*',(req,res)=>{
+    res.send('Wrong page fella')
+})
 app.listen(process.env.PORT || 8888 );
 //----------------------------------------------------------------------------------------------//
 

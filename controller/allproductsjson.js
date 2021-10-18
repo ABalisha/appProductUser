@@ -6,7 +6,14 @@
         if(!req.query){
     await product.find()
     .then(data=>{
+        if(typeof data !=='undefined' && data){
         res.status(200).send(data)
+        }
+        else
+        {
+            res.status(400).send("Bad Request")
+        }
+            
     })
     .catch(err=>
         {
@@ -18,7 +25,13 @@
     {
         await product.find(req.query)
         .then(data=>{
-            res.status(200).send(data)
+        if(typeof data !=='undefined' && data){
+        res.status(200).send(data)
+        }
+        else
+        {
+            res.status(400).send("Bad Request")
+        }
         })
         .catch(err=>
             {
@@ -34,7 +47,13 @@ exports.allproductsdelete = async (req,res)=>{
     console.log(todel)
     await product.deleteOne(todel)
     .then(data=>{
+                if(typeof data !=='undefined' && data){
         res.status(200).send(data)
+        }
+        else
+        {
+            res.status(400).send("Bad Request")
+        }
     })
     .catch(err=>
         {
@@ -65,7 +84,13 @@ exports.allproductsdelete = async (req,res)=>{
             const productPrize = req.body.productPrize;
             product.findOneAndUpdate({_id:id},{$set:{productTitle:productTitle,productPrize:productPrize}},{new:true},(err,data)=>{
                 if(err) {res.status(400).send(err)}
-                res.status(200).send("updated user:" + data)
+                        if(typeof data !=='undefined' && data){
+        res.status(200).send("Updates User:" + data)
+        }
+        else
+        {
+            res.status(400).send("Bad Request")
+        }
             })
             }
 

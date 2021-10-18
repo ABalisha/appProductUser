@@ -36,8 +36,8 @@ router
   .route("/all-products/json") // Sets Route 
   .get(allproducts123) 
   .post(allproductspost)
-  .delete(allproductsdelete)
-  .put(allproductsupdate);
+  .delete(allproductsdelete) // Delete based on body
+  .put(allproductsupdate); // Update based on "id" query
 // Post route to add product
 
 router.get("/all-products/json/:id", getproductbyid);

@@ -41,8 +41,8 @@ router
 // Post route to add product
 
 router.get("/all-products/json/:id", getproductbyid);
-router.post("/add-product", addProduct);
+// router.post("/add-product", addProduct);
 // Remove a product based on ID
-router.post("/remove", removeProduct);
-router.get("/delet/:ProductName", delet);
+// router.post("/remove", removeProduct);
+// router.get("/delet/:ProductName", delet);
 module.exports = router; // Exporting module to set on the main app.js file

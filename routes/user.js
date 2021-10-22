@@ -34,6 +34,7 @@ router
 
   // Param Routes / Search based on ID parameter
   router.get("/json/:id",getSingleUser)
+router.get('/json/1/random',headeroptions,RandomUser)
 // function loginverify(req, res, next) {
 //   if (!verifyLogin(req.body.username, req.body.password)) {
 //     console.log("Bad Login");

@@ -9,7 +9,8 @@ const {
   allUsersPost,
   allUsersDelete,
   allUsersUpdate,
-  getSingleUser
+  getSingleUser,
+  RandomUser
 } = require("../controller/allusersjson");
 // const { authenticateapi } = require("../controller/helpers/apiauthenticate");
 // // Middleware/ 

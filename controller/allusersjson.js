@@ -93,7 +93,19 @@ exports.getSingleUser = async (req, res, next) => {
       res.status(401).send("No Results");
     })
   }
-
+  exports.RandomUser = async (req,res,next) =>
+  {
+    console.log()
+    try{
+      user.find(
+        (err,res1)=>{
+  res.status(200).send(res1[Math.floor(Math.random() * res1.length)])
+      })
+    }
+catch(e){
+  console.log(e)
+}
+  }
 // -----------------------------------------------------------
   //// OPTIONALLY WITHOUT THEN AND CATCH -----------------------------------------------------
 
